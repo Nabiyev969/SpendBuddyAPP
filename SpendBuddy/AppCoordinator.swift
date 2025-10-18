@@ -47,9 +47,10 @@ final class AppCoordinator {
         
         let homeNav = buildHomeNav()
         let listNav = buildListNav()
+        let statsNav = buildStatsNav()
         let settingsNav = buildSettingsNav()
 
-        tab.setViewControllers([homeNav, listNav, settingsNav])
+        tab.setViewControllers([homeNav, listNav, statsNav,settingsNav])
 
         setRoot(tab, animated: animated)
     }
@@ -85,6 +86,19 @@ final class AppCoordinator {
             image: UIImage(systemName: "list.bullet"),
             selectedImage: UIImage(systemName: "list.bullet")
         )
+        return nav
+    }
+    
+    private func buildStatsNav() -> UINavigationController {
+        let deps = AppDependencies.shared
+        let vm = StatsViewModel(repo: deps.transactionsRepository, userId: deps.authService.currentUserId ?? "unknown")
+        let vc = StatsViewController(viewModel: vm)
+        let nav = UINavigationController(rootViewController: vc)
+        applyNavAppearance(to: nav)
+        nav.tabBarItem = UITabBarItem(
+            title: "Statistics",
+            image: UIImage(systemName: "chart.pie"),
+            selectedImage: UIImage(systemName: "chart.pie.fill"))
         return nav
     }
 

@@ -15,6 +15,7 @@
 		8862E9FA2E9462A200938B6F /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8862E9F92E9462A200938B6F /* Lottie */; };
 		8862EA552EA1748C00938B6F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 8862EA542EA1748C00938B6F /* GoogleSignIn */; };
 		8862EA572EA1748C00938B6F /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8862EA562EA1748C00938B6F /* GoogleSignInSwift */; };
+		88CB64FC2EA3B24A004FFADB /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 88CB64FB2EA3B24A004FFADB /* DGCharts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 				8862E9E82E94553F00938B6F /* FirebaseFirestore in Frameworks */,
 				8862E9D92E94501200938B6F /* FirebaseAI in Frameworks */,
 				8862E9FA2E9462A200938B6F /* Lottie in Frameworks */,
+				88CB64FC2EA3B24A004FFADB /* DGCharts in Frameworks */,
 				8862EA552EA1748C00938B6F /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -105,6 +107,7 @@
 				8862E9F92E9462A200938B6F /* Lottie */,
 				8862EA542EA1748C00938B6F /* GoogleSignIn */,
 				8862EA562EA1748C00938B6F /* GoogleSignInSwift */,
+				88CB64FB2EA3B24A004FFADB /* DGCharts */,
 			);
 			productName = SpendBuddy;
 			productReference = 8862E9892E94458E00938B6F /* SpendBuddy.app */;
@@ -139,6 +142,7 @@
 				8862E9D72E94501200938B6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				8862E9F82E9462A200938B6F /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				8862EA532EA1748C00938B6F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				88CB64FA2EA3B24A004FFADB /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8862E98A2E94458E00938B6F /* Products */;
@@ -424,6 +428,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		88CB64FA2EA3B24A004FFADB /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -466,6 +478,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8862EA532EA1748C00938B6F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		88CB64FB2EA3B24A004FFADB /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 88CB64FA2EA3B24A004FFADB /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
