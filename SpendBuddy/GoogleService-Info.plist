@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>143249730787-nfu7gk3lt8so1p1nins4jkg0g8pch2pq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.143249730787-nfu7gk3lt8so1p1nins4jkg0g8pch2pq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCKHHcoOnyGN9JBx2dzakzSPYDlpWDupbw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>143249730787</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Nabiyev969.SpendBuddy</string>
+	<key>PROJECT_ID</key>
+	<string>spendbuddy-c6cbf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spendbuddy-c6cbf.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:143249730787:ios:7fdd1a93105ad5d5ade9d6</string>
+</dict>
+</plist>
