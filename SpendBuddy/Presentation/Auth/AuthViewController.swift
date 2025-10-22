@@ -122,8 +122,6 @@ final class AuthViewController: BaseViewController {
         return stack
     }()
     
-    private let loader = LottieView(name: "loader")
-    
     init(viewModel: AuthViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -145,7 +143,7 @@ final class AuthViewController: BaseViewController {
     
     private func setupUI() {
         view.addSubview(stack)
-        [titleLabel, subtitleLabel, email, pass, loginBtn, registerBtn, loader, loginStack].forEach(stack.addArrangedSubview)
+        [titleLabel, subtitleLabel, email, pass, loginBtn, registerBtn, loginStack].forEach(stack.addArrangedSubview)
         [loginWithApple, loginWithGoogle].forEach(loginStack.addArrangedSubview)
         
         
@@ -175,18 +173,11 @@ final class AuthViewController: BaseViewController {
                 make.width.equalTo(48)
             }
         }
-        
-        loader.isHidden = true
     }
-    
-    private func setLoading(_ loading: Bool) {
-        loader.isHidden = !loading
-    }
-    
+
     private func refreshLoadingAndErrors() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
             guard let self else { return }
-            self.setLoading(self.viewModel.isLoading)
             if let msg = self.viewModel.errorMessage {
                 let alert = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -196,7 +187,6 @@ final class AuthViewController: BaseViewController {
     }
     
     private func presentRegistrationSuccess() {
-        setLoading(false)
         
         let alert = UIAlertController(title: "Registration Successful",
                                       message: "Welcome to SpendBuddy!",
@@ -209,7 +199,6 @@ final class AuthViewController: BaseViewController {
     
     @objc
     private func onLogin() {
-        setLoading(true)
         viewModel.login(email: email.text ?? "", password: pass.text ?? "")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
             self?.refreshLoadingAndErrors()
@@ -218,7 +207,6 @@ final class AuthViewController: BaseViewController {
     
     @objc
     private func onRegister() {
-        setLoading(true)
         viewModel.register(email: email.text ?? "", password: pass.text ?? "")
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
             self?.refreshLoadingAndErrors()

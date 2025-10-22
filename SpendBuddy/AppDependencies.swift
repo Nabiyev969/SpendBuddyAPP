@@ -22,9 +22,16 @@ final class AppDependencies {
     struct Settings {
         private let defaults = UserDefaults.standard
         private let key = "currencyCode"
+        private let keyOnboarding = "onboarding.completed"
+        
         var currencyCode: String {
             get { defaults.string(forKey: key) ?? "USD" }
             set { defaults.set(newValue, forKey: key) }
+        }
+        
+        var onboardingCompleted: Bool {
+            get { defaults.bool(forKey: keyOnboarding) }
+            set { defaults.set(newValue, forKey: keyOnboarding) }
         }
     }
 }

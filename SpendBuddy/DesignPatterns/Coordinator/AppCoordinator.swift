@@ -13,6 +13,7 @@ final class AppCoordinator {
     private let window: UIWindow
     private var authCoordinator: AuthCoordinator?
     private var tabsCoordinator: TabsCoordinator?
+    private var onboardingCoordinator: OnboardingCoordinator?
     
     init(window: UIWindow) {
         self.window = window
@@ -31,11 +32,25 @@ final class AppCoordinator {
         
         let coordinator = AuthCoordinator(window: window)
         coordinator.onFinish = { [weak self] in
-            self?.showMainTabs()
+            self?.showOnboardingThenTabs()
         }
         authCoordinator = coordinator
         tabsCoordinator = nil
+        onboardingCoordinator = nil
         coordinator.start()
+    }
+    
+    private func showOnboardingThenTabs() {
+        
+        let onboarding = OnboardingCoordinator(window: window)
+        onboardingCoordinator = onboarding
+        authCoordinator = nil
+        
+        onboarding.onFinish = { [weak self] in
+            self?.onboardingCoordinator = nil
+            self?.showMainTabs(animated: true)
+        }
+        onboarding.start()
     }
     
     func showMainTabs(animated: Bool = false) {
