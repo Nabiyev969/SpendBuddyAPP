@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Lottie
 
-struct OnboardingPage: Equatable {
+struct OnboardingPage {
     let animation: String
     let title: String
     let subtitle: String
@@ -92,12 +92,5 @@ final class OnboardingPageViewController: UIViewController {
         } else {
             animationView.isHidden = true
         }
-    }
-}
-
-extension OnboardingPageViewController {
-    
-    static func == (lhs: OnboardingPageViewController, rhs: OnboardingPageViewController) -> Bool {
-        lhs.page == rhs.page
     }
 }

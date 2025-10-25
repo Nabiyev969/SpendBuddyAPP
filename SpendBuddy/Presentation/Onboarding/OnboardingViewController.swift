@@ -73,7 +73,7 @@ final class OnboardingViewController: BaseViewController {
         pageVC.didMove(toParent: self)
         pageVC.dataSource = self
         pageVC.delegate = self
-        pageVC.setViewControllers([controllers[0]], direction: .forward, animated: false)
+        pageVC.setViewControllers([controllers[0]], direction: .forward, animated: true)
         
         view.addSubview(pageControl)
         view.addSubview(nextButton)

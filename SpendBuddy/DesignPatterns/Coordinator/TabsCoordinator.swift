@@ -21,9 +21,10 @@ final class TabsCoordinator: BaseCoordinator {
         let home = ModuleBuilder.makeHome()
         let list = ModuleBuilder.makeTransactionsList()
         let stats = ModuleBuilder.makeStats()
+        let rates = ModuleBuilder.makeRates()
         let settings = ModuleBuilder.makeSettings()
         
-        tab.setViewControllers([home, list, stats, settings])
+        tab.setViewControllers([home, list, stats, rates, settings])
         setRoot(tab)
     }
     

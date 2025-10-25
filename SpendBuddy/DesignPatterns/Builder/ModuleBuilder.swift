@@ -80,4 +80,17 @@ enum ModuleBuilder {
                                       existing: existing)
             return AddEditViewController(viewModel: vm)
         }
+    
+    static func makeRates() -> UINavigationController {
+        let deps = AppDependencies.shared
+        let base = Currency(rawValue: deps.settings.currencyCode) ?? .USD
+        let vm = RatesViewModel(service: deps.rates, initialBase: base)
+        let vc = RatesViewController(viewModel: vm)
+        let nav = UINavigationController(rootViewController: vc)
+        applyNav(nav)
+        nav.tabBarItem = UITabBarItem(title: "Rates",
+                                      image: UIImage(systemName: "dollarsign.arrow.circlepath"),
+                                      selectedImage: UIImage(systemName: "dollarsign.arrow.circlepath"))
+        return nav
+    }
 }

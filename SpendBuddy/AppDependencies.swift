@@ -19,6 +19,8 @@ final class AppDependencies {
     let summaryCalculator: SummaryCalculating = SummaryCalculator()
       var settings = Settings()
     
+    let rates: CurrencyRatesProviding = CurrencyRatesService()
+    
     struct Settings {
         private let defaults = UserDefaults.standard
         private let key = "currencyCode"
