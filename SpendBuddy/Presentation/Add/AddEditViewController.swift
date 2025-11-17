@@ -123,6 +123,14 @@ final class AddEditViewController: BaseViewController {
         updateSaveState()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.isTabBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.isTabBarHidden = false
+    }
+    
     private func setupUI() {
         view.addSubview(scrollView)
         scrollView.addSubview(vStack)
@@ -146,8 +154,8 @@ final class AddEditViewController: BaseViewController {
             make.width.equalTo(scrollView.frameLayoutGuide)
         }
         
-        [amountField, noteField].forEach { tf in
-            tf.snp.makeConstraints { make in make.height.equalTo(48) }
+        [amountField, noteField].forEach { textField in
+            textField.snp.makeConstraints { make in make.height.equalTo(48) }
         }
         datePicker.snp.makeConstraints { make in make.height.greaterThanOrEqualTo(180) }
         categoryPicker.snp.makeConstraints { make in make.height.equalTo(160) }
@@ -202,15 +210,15 @@ final class AddEditViewController: BaseViewController {
         }
     }
     
-    private func normalizedAmountString(_ s: String) -> String {
-        s.replacingOccurrences(of: ",", with: ".")
+    private func normalizedAmountString(_ string: String) -> String {
+        string.replacingOccurrences(of: ",", with: ".")
          .trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     private func isAmountValid() -> Bool {
-        let s = normalizedAmountString(amountField.text ?? "")
-        guard !s.isEmpty,
-        let value = Double(s),
+        let point = normalizedAmountString(amountField.text ?? "")
+        guard !point.isEmpty,
+        let value = Double(point),
         value >= 0 else { return false }
         return true
     }
